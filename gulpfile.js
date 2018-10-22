@@ -7,13 +7,12 @@ var gulp        = require('gulp'),
   sass          = require('gulp-sass'),
   cleanCSS      = require('gulp-clean-css'),
   uglify        = require('gulp-uglify'),
-  pump          = require('pump'),
-  order         = require('gulp-order'),
   livereload    = require('gulp-livereload');
 
 gulp.task('watch', function () {
   livereload.listen();
   gulp.watch('frontend/sass/*.sass', gulp.series('sass'));
+  gulp.watch('frontend/sass/*.scss', gulp.series('sass'));
   gulp.watch('public/wp-content/themes/manicure/**/*.php').on('change', livereload.changed);
   gulp.watch('public/wp-content/themes/manicure/css/*.css').on('change', livereload.changed);
   gulp.watch('public/wp-content/themes/manicure/js/*.js').on('change', livereload.changed);

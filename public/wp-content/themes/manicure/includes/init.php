@@ -39,6 +39,7 @@ function manicure_scripts_method()
     wp_enqueue_script('jquery', "https://yastatic.net/jquery/2.0.3/jquery.min.js", '', '', 'true');
     wp_enqueue_script('popper', "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js", '', '', 'true');
     wp_enqueue_script('bootstrap', "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js", '', '', 'true');
+    wp_enqueue_script('pushy', get_template_directory_uri() . "/js/pushy.js", '', '', 'true');
     // wp_enqueue_script('script', get_template_directory_uri() . "/js/script.js", '', '', 'true');
 } 
 
@@ -136,7 +137,7 @@ function remove_footer_admin (){
 add_filter('admin_footer_text', 'remove_footer_admin');
 
 // Кастомизация логин формы
-function iservice_login_logo() {
+function manicure_login_logo() {
   echo '<style  type="text/css">
     .login h1 a { 
       background: url("' . get_template_directory_uri() . '/img/logo-admin.svg") no-repeat !important; 
@@ -145,8 +146,8 @@ function iservice_login_logo() {
     }
     </style>';
 }
-add_action('login_head', 'iservice_login_logo');
+add_action('login_head', 'manicure_login_logo');
 
 add_filter( 'login_headerurl', function(){
-  return 'manicure-planing.ru';
+  return 'manicure-planning.ru';
 } );
